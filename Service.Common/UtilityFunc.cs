@@ -23,5 +23,6 @@ namespace Service.Common
            str_sha1_out = str_sha1_out.Replace("-", "");
            return str_sha1_out;
        }
+
     }
 }
