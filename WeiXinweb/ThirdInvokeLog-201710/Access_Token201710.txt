@@ -1,0 +1,38 @@
+﻿[2017-10-22 18:02:31] 开始调用IsExistAccess_Token 方法
+[2017-10-22 18:03:30] Access_Token:IT1B1ZG7CLsyENZuBhpD6DNMTdXw-gteSrJjjUXCO08Jk_tTGhazIB9SZTzx6--KDkOUnFPln6s3zBMl-G_mQctvYTd97M3EBmEPABQZul5-ejZ46_74Ek8EGeJO-36gZRKeAFALDW
+[2017-10-22 18:03:40] 开始调用IsExistAccess_Token 方法
+[2017-10-22 18:03:41] Access_Token:IT1B1ZG7CLsyENZuBhpD6DNMTdXw-gteSrJjjUXCO08Jk_tTGhazIB9SZTzx6--KDkOUnFPln6s3zBMl-G_mQctvYTd97M3EBmEPABQZul5-ejZ46_74Ek8EGeJO-36gZRKeAFALDW
+[2017-10-22 20:11:47] 开始调用IsExistAccess_Token 方法
+[2017-10-22 20:11:52] 开始获取Access_Token.xml 路径:F:\vs\WeiXin\WeiXinweb\Access_Token.xml
+[2017-10-22 20:11:55] Access_Token.xml 路径转UTF8:System.IO.StreamReader
+[2017-10-22 20:12:07] token值是IT1B1ZG7CLsyENZuBhpD6DNMTdXw-gteSrJjjUXCO08Jk_tTGhazIB9SZTzx6--KDkOUnFPln6s3zBMl-G_mQctvYTd97M3EBmEPABQZul5-ejZ46_74Ek8EGeJO-36gZRKeAFALDW
+[2017-10-22 20:14:29] Access_Token:i1c0AawvZCRpPgA7qmSJC55AUOwr4dxytrZcyNWCMttj6j_oK71CX5N42jBZ6U0-KDB-JfFrPX5KJV0wjU_l9UL1xpwWhWY0SHbyjYoL4PAMVRfAGAWFB
+[2017-10-22 20:14:48] 开始调用IsExistAccess_Token 方法
+[2017-10-22 20:14:51] 开始获取Access_Token.xml 路径:F:\vs\WeiXin\WeiXinweb\Access_Token.xml
+[2017-10-22 20:14:53] Access_Token.xml 路径转UTF8:System.IO.StreamReader
+[2017-10-22 20:14:56] token值是i1c0AawvZCRpPgA7qmSJC55AUOwr4dxytrZcyNWCMttj6j_oK71CX5N42jBZ6U0-KDB-JfFrPX5KJV0wjU_l9UL1xpwWhWY0SHbyjYoL4PAMVRfAGAWFB
+[2017-10-22 20:15:11] Access_Token:i1c0AawvZCRpPgA7qmSJC55AUOwr4dxytrZcyNWCMttj6j_oK71CX5N42jBZ6U0-KDB-JfFrPX5KJV0wjU_l9UL1xpwWhWY0SHbyjYoL4PAMVRfAGAWFB
+[2017-10-22 21:50:43] 开始调用IsExistAccess_Token 方法
+[2017-10-22 21:50:49] 开始获取Access_Token.xml 路径:F:\vs\WeiXin\WeiXinweb\Access_Token.xml
+[2017-10-22 21:50:52] Access_Token.xml 路径转UTF8:System.IO.StreamReader
+[2017-10-22 21:51:09] token值是i1c0AawvZCRpPgA7qmSJC55AUOwr4dxytrZcyNWCMttj6j_oK71CX5N42jBZ6U0-KDB-JfFrPX5KJV0wjU_l9UL1xpwWhWY0SHbyjYoL4PAMVRfAGAWFB
+[2017-10-22 21:51:24] 获取Access_YouXRQ值 2017-10-22 22:13:46
+[2017-10-22 21:52:32] 开始调用IsExistAccess_Token 方法
+[2017-10-22 21:52:44] 开始获取Access_Token.xml 路径:F:\vs\WeiXin\WeiXinweb\Access_Token.xml
+[2017-10-22 21:52:44] Access_Token.xml 路径转UTF8:System.IO.StreamReader
+[2017-10-22 21:52:44] token值是i1c0AawvZCRpPgA7qmSJC55AUOwr4dxytrZcyNWCMttj6j_oK71CX5N42jBZ6U0-KDB-JfFrPX5KJV0wjU_l9UL1xpwWhWY0SHbyjYoL4PAMVRfAGAWFB
+[2017-10-22 21:52:44] 获取Access_YouXRQ值 2017-9-22 22:13:46
+[2017-10-22 21:53:10] GetAccess_token 方法
+[2017-10-22 21:55:49] 开始调用IsExistAccess_Token 方法
+[2017-10-22 21:55:50] 开始获取Access_Token.xml 路径:F:\vs\WeiXin\WeiXinweb\Access_Token.xml
+[2017-10-22 21:55:50] Access_Token.xml 路径转UTF8:System.IO.StreamReader
+[2017-10-22 21:55:50] token值是i1c0AawvZCRpPgA7qmSJC55AUOwr4dxytrZcyNWCMttj6j_oK71CX5N42jBZ6U0-KDB-JfFrPX5KJV0wjU_l9UL1xpwWhWY0SHbyjYoL4PAMVRfAGAWFB
+[2017-10-22 21:55:50] 获取Access_YouXRQ值 2017-9-22 22:13:46
+[2017-10-22 21:56:00] GetAccess_token 方法
+[2017-10-22 21:56:15] appid:wxfaddf4773d85437asecret:1487456d2780d0d6f3d2b1131482fcd9
+[2017-10-22 21:56:22] 请求URL：https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxfaddf4773d85437a&secret=1487456d2780d0d6f3d2b1131482fcd9
+[2017-10-22 21:56:24] 请求方式为：GET
+[2017-10-22 21:56:34] myResponse
+[2017-10-22 21:57:33] GetAccess_token 结束
+[2017-10-22 21:58:06] Access_Token 值改变为vyFDgNXiptynjt-RSEFQ4vX2_jXnQlZvsEQnSiRXFD8hUINtNZxhlg8KlFENESToaDZzVYeQB4N1iFMqY8QDYK6cvOLB3Kfgzi1pQ73RPM9B_ZTF_Uj-IoFZBIpG9qGGBLNfABAHRT
+[2017-10-22 21:58:50] Access_Token:vyFDgNXiptynjt-RSEFQ4vX2_jXnQlZvsEQnSiRXFD8hUINtNZxhlg8KlFENESToaDZzVYeQB4N1iFMqY8QDYK6cvOLB3Kfgzi1pQ73RPM9B_ZTF_Uj-IoFZBIpG9qGGBLNfABAHRT
