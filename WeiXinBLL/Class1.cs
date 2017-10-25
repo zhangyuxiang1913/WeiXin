@@ -20,5 +20,9 @@ namespace WeiXinBLL
         {
 
         }
+       public string test(int a,int b,int c)
+        {
+            return "";
+        }
     }
 }
