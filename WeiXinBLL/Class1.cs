@@ -8,6 +8,10 @@ namespace WeiXinBLL
 {
    public class Class1
     {
+       public string test(int s)
+       {
+           return "";
+       }
         public int test()
         {
             return 1;
@@ -16,13 +20,14 @@ namespace WeiXinBLL
         {
             return "";
         }
+        public string test(int a, int b, int c)
+        {
+            return "";
+        }
         public void test()
         {
 
         }
-       public string test(int a,int b,int c)
-        {
-            return "";
-        }
+     
     }
 }
