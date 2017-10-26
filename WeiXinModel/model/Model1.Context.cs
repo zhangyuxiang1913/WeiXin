@@ -13,10 +13,10 @@ namespace WeiXinModel.model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class modelEntities : DbContext
+    public partial class testEntities : DbContext
     {
-        public modelEntities()
-            : base("name=modelEntities")
+        public testEntities()
+            : base("name=testEntities")
         {
         }
     
@@ -25,6 +25,21 @@ namespace WeiXinModel.model
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<FuncOper> FuncOper { get; set; }
+        public DbSet<Menu> Menu { get; set; }
+        public DbSet<PageElement> PageElement { get; set; }
+        public DbSet<Paper> Paper { get; set; }
+        public DbSet<Permission> Permission { get; set; }
+        public DbSet<PermMenu> PermMenu { get; set; }
+        public DbSet<PermOperate> PermOperate { get; set; }
+        public DbSet<PermPageElement> PermPageElement { get; set; }
+        public DbSet<PermPaper> PermPaper { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<RolePerm> RolePerm { get; set; }
         public DbSet<SysUser> SysUser { get; set; }
+        public DbSet<UserGroup> UserGroup { get; set; }
+        public DbSet<UserGroupRelate> UserGroupRelate { get; set; }
+        public DbSet<UserGroupRole> UserGroupRole { get; set; }
+        public DbSet<UserRole> UserRole { get; set; }
     }
 }

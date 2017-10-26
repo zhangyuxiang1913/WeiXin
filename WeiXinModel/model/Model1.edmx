@@ -5,6 +5,99 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FuncOper">
+          <Key>
+            <PropertyRef Name="FuncOper" />
+          </Key>
+          <Property Name="FuncOper" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ParentID" Type="char" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ParentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PageElement">
+          <Key>
+            <PropertyRef Name="PageElementID" />
+          </Key>
+          <Property Name="PageElementID" Type="int" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paper">
+          <Key>
+            <PropertyRef Name="PaperID" />
+          </Key>
+          <Property Name="PaperID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Url" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+          <Property Name="PermType" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermMenu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+          <Property Name="PermMenuID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermOperate">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+            <PropertyRef Name="FuncOper" />
+          </Key>
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+          <Property Name="FuncOper" Type="int" Nullable="false" />
+          <Property Name="PermOperateID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermPageElement">
+          <Key>
+            <PropertyRef Name="PageElementID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PageElementID" Type="int" Nullable="false" />
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+          <Property Name="PermPageElement" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermPaper">
+          <Key>
+            <PropertyRef Name="PaperID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PaperID" Type="int" Nullable="false" />
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+          <Property Name="PermPaperID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolePerm">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+          <Property Name="RolePermID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="SysUser">
           <Key>
             <PropertyRef Name="SysUserID" />
@@ -24,14 +117,157 @@
           <Property Name="QQ" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="DisFlag" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="UserGroupID" />
+          </Key>
+          <Property Name="UserGroupID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ParentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserGroupRelate">
+          <Key>
+            <PropertyRef Name="UserGroupID" />
+            <PropertyRef Name="SysUserID" />
+          </Key>
+          <Property Name="UserGroupID" Type="int" Nullable="false" />
+          <Property Name="SysUserID" Type="int" Nullable="false" />
+          <Property Name="UserGroupRelateID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserGroupRole">
+          <Key>
+            <PropertyRef Name="UserGroupID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserGroupID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="UserGroupRoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="SysUserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="SysUserID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="UserRoleID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="FuncOper" EntityType="Self.FuncOper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PageElement" EntityType="Self.PageElement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paper" EntityType="Self.Paper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermMenu" EntityType="Self.PermMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermOperate" EntityType="Self.PermOperate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermPageElement" EntityType="Self.PermPageElement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermPaper" EntityType="Self.PermPaper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolePerm" EntityType="Self.RolePerm" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SysUser" EntityType="Self.SysUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGroupRelate" EntityType="Self.UserGroupRelate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGroupRole" EntityType="Self.UserGroupRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FuncOper">
+          <Key>
+            <PropertyRef Name="FuncOper1" />
+          </Key>
+          <Property Name="FuncOper1" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParentID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PageElement">
+          <Key>
+            <PropertyRef Name="PageElementID" />
+          </Key>
+          <Property Name="PageElementID" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paper">
+          <Key>
+            <PropertyRef Name="PaperID" />
+          </Key>
+          <Property Name="PaperID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PermissionID" Type="Int32" Nullable="false" />
+          <Property Name="PermType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermMenu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="PermissionID" Type="Int32" Nullable="false" />
+          <Property Name="PermMenuID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermOperate">
+          <Key>
+            <PropertyRef Name="PermissionID" />
+            <PropertyRef Name="FuncOper" />
+          </Key>
+          <Property Name="PermissionID" Type="Int32" Nullable="false" />
+          <Property Name="FuncOper" Type="Int32" Nullable="false" />
+          <Property Name="PermOperateID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermPageElement">
+          <Key>
+            <PropertyRef Name="PageElementID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PageElementID" Type="Int32" Nullable="false" />
+          <Property Name="PermissionID" Type="Int32" Nullable="false" />
+          <Property Name="PermPageElement1" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermPaper">
+          <Key>
+            <PropertyRef Name="PaperID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="PaperID" Type="Int32" Nullable="false" />
+          <Property Name="PermissionID" Type="Int32" Nullable="false" />
+          <Property Name="PermPaperID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolePerm">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="PermissionID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="PermissionID" Type="Int32" Nullable="false" />
+          <Property Name="RolePermID" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="SysUser">
           <Key>
             <PropertyRef Name="SysUserID" />
@@ -51,15 +287,164 @@
           <Property Name="QQ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DisFlag" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="modelEntities" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="UserGroupID" />
+          </Key>
+          <Property Name="UserGroupID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserGroupRelate">
+          <Key>
+            <PropertyRef Name="UserGroupID" />
+            <PropertyRef Name="SysUserID" />
+          </Key>
+          <Property Name="UserGroupID" Type="Int32" Nullable="false" />
+          <Property Name="SysUserID" Type="Int32" Nullable="false" />
+          <Property Name="UserGroupRelateID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserGroupRole">
+          <Key>
+            <PropertyRef Name="UserGroupID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserGroupID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="UserGroupRoleID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="SysUserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="SysUserID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="UserRoleID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FuncOper" EntityType="Self.FuncOper" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" />
+          <EntitySet Name="PageElement" EntityType="Self.PageElement" />
+          <EntitySet Name="Paper" EntityType="Self.Paper" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" />
+          <EntitySet Name="PermMenu" EntityType="Self.PermMenu" />
+          <EntitySet Name="PermOperate" EntityType="Self.PermOperate" />
+          <EntitySet Name="PermPageElement" EntityType="Self.PermPageElement" />
+          <EntitySet Name="PermPaper" EntityType="Self.PermPaper" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="RolePerm" EntityType="Self.RolePerm" />
           <EntitySet Name="SysUser" EntityType="Self.SysUser" />
+          <EntitySet Name="UserGroup" EntityType="Self.UserGroup" />
+          <EntitySet Name="UserGroupRelate" EntityType="Self.UserGroupRelate" />
+          <EntitySet Name="UserGroupRole" EntityType="Self.UserGroupRole" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="modelEntities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="testEntities">
+          <EntitySetMapping Name="FuncOper">
+            <EntityTypeMapping TypeName="Model.FuncOper">
+              <MappingFragment StoreEntitySet="FuncOper">
+                <ScalarProperty Name="FuncOper1" ColumnName="FuncOper" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="Model.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageElement">
+            <EntityTypeMapping TypeName="Model.PageElement">
+              <MappingFragment StoreEntitySet="PageElement">
+                <ScalarProperty Name="PageElementID" ColumnName="PageElementID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paper">
+            <EntityTypeMapping TypeName="Model.Paper">
+              <MappingFragment StoreEntitySet="Paper">
+                <ScalarProperty Name="PaperID" ColumnName="PaperID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permission">
+            <EntityTypeMapping TypeName="Model.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="PermType" ColumnName="PermType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermMenu">
+            <EntityTypeMapping TypeName="Model.PermMenu">
+              <MappingFragment StoreEntitySet="PermMenu">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="PermMenuID" ColumnName="PermMenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermOperate">
+            <EntityTypeMapping TypeName="Model.PermOperate">
+              <MappingFragment StoreEntitySet="PermOperate">
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="FuncOper" ColumnName="FuncOper" />
+                <ScalarProperty Name="PermOperateID" ColumnName="PermOperateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermPageElement">
+            <EntityTypeMapping TypeName="Model.PermPageElement">
+              <MappingFragment StoreEntitySet="PermPageElement">
+                <ScalarProperty Name="PageElementID" ColumnName="PageElementID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="PermPageElement1" ColumnName="PermPageElement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermPaper">
+            <EntityTypeMapping TypeName="Model.PermPaper">
+              <MappingFragment StoreEntitySet="PermPaper">
+                <ScalarProperty Name="PaperID" ColumnName="PaperID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="PermPaperID" ColumnName="PermPaperID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="Model.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolePerm">
+            <EntityTypeMapping TypeName="Model.RolePerm">
+              <MappingFragment StoreEntitySet="RolePerm">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="RolePermID" ColumnName="RolePermID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="SysUser">
             <EntityTypeMapping TypeName="Model.SysUser">
               <MappingFragment StoreEntitySet="SysUser">
@@ -77,6 +462,42 @@
                 <ScalarProperty Name="RegTime" ColumnName="RegTime" />
                 <ScalarProperty Name="QQ" ColumnName="QQ" />
                 <ScalarProperty Name="DisFlag" ColumnName="DisFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroup">
+            <EntityTypeMapping TypeName="Model.UserGroup">
+              <MappingFragment StoreEntitySet="UserGroup">
+                <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroupRelate">
+            <EntityTypeMapping TypeName="Model.UserGroupRelate">
+              <MappingFragment StoreEntitySet="UserGroupRelate">
+                <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+                <ScalarProperty Name="SysUserID" ColumnName="SysUserID" />
+                <ScalarProperty Name="UserGroupRelateID" ColumnName="UserGroupRelateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroupRole">
+            <EntityTypeMapping TypeName="Model.UserGroupRole">
+              <MappingFragment StoreEntitySet="UserGroupRole">
+                <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="UserGroupRoleID" ColumnName="UserGroupRoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="Model.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="SysUserID" ColumnName="SysUserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
